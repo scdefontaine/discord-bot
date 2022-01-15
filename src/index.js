@@ -15,10 +15,6 @@ client.on('message', msg => {
     msg.reply('Pong!');
   }
 
-  if (msg.content === '/hello') {
-    msg.reply('Hello World!');
-  }
-
 });
 
 //make sure this line is the last line
