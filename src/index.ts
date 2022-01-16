@@ -1,8 +1,10 @@
 import { Client } from "discord.js";
 import { IntentOptions } from "./config/IntentOptions";
 import { onMessage } from "./events/onMessage";
+import { validateVariables } from "./utils/ValidateVariables";
 
 (async () => {
+  validateVariables();
 
   const FIN_BOT = new Client({ intents: IntentOptions });
 
