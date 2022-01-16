@@ -11,6 +11,7 @@ test:
 build:
   stage: build
   script:
+    - docker build -t CI_REGISTRY .
     - echo 'building'
 
 deploy:
