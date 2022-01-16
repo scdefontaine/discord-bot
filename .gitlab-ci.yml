@@ -12,6 +12,7 @@ build:
   image: docker
   stage: build
   script:
+    - env
     - docker build -t registry.gitlab.com/scdefontaine/CI_REGISTRY .
     - echo 'building'
 
