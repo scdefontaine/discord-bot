@@ -15,8 +15,8 @@ build:
   stage: build
   variables:
     ARTIFACT: $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME
-    # DOCKER_HOST: tcp://docker:2375
-    # DOCKER_TLS_CERTDIR: ""
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   script:
     - env
     - docker login --password-stdin $GIT_TOKEN --username $GITLAB_USER_LOGIN
