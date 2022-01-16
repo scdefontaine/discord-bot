@@ -11,10 +11,12 @@ test:
 build:
   image: docker
   services:
-    - dind
+    - docker:dind
   stage: build
   variables:
     ARTIFACT: $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME
+    # DOCKER_HOST: tcp://docker:2375
+    # DOCKER_TLS_CERTDIR: ""
   script:
     - env
     - docker login --password $CI_JOB_TOKEN --user $GITLAB_USER_LOGIN
