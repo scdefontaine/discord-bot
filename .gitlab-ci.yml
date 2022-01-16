@@ -12,7 +12,8 @@ build:
   image: docker
   stage: build
   script:
-    - docker login -u $GITLAB_USER_LOGIN -p $GIT_TOKEN
+    - env
+    - docker login -u $GITLAB_USER_LOGIN --password $GIT_TOKEN
     - docker build -t $CI_REGISTRY_IMAGE .
     - echo 'building complete'
 
