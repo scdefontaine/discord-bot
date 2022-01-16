@@ -9,9 +9,19 @@ test:
     - echo 'testing'
 
 build:
+  image: docker
+  services:
+    - docker:dind
   stage: build
+  variables:
+    ARTIFACT: $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME
+    # DOCKER_HOST: tcp://docker:2375
+    # DOCKER_TLS_CERTDIR: ""
   script:
-    - echo 'building'
+    - docker login -p $CI_JOB_TOKEN -u $CI_REGISTRY_USER $CI_REGISTRY
+    - docker build -t $ARTIFACT:latest .
+    - docker push $ARTIFACT
+    - echo 'building complete'
 
 deploy:
   stage: deploy
