@@ -15,12 +15,12 @@ build:
   stage: build
   variables:
     ARTIFACT: $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
+    # DOCKER_HOST: tcp://docker:2375
+    # DOCKER_TLS_CERTDIR: ""
   script:
     - docker login -p $CI_JOB_TOKEN -u $CI_REGISTRY_USER $CI_REGISTRY
     - docker build -t $ARTIFACT:latest .
-    - docker publish $ARTIFACT
+    - docker push $ARTIFACT
     - echo 'building complete'
 
 deploy:
