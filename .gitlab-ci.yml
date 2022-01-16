@@ -12,7 +12,7 @@ build:
   image: docker
   stage: build
   script:
-    - docker build -t CI_REGISTRY .
+    - docker build -t registry.gitlab.com/scdefontaine/CI_REGISTRY .
     - echo 'building'
 
 deploy:
