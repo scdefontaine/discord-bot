@@ -10,6 +10,8 @@ test:
 
 build:
   stage: build
+  tags:
+    - docker
   script:
     - docker build -t CI_REGISTRY .
     - echo 'building'
